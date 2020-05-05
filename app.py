@@ -3,6 +3,14 @@ import socket
 
 app = Flask(__name__)
 
+@app.route("/healthz")
+def healthz():
+    return "Healthy"
+
+@app.route("/")
+def rootpage():
+    return "root page"
+
 @app.route("/greetings")
 def hello():
     return "Hello World from " + socket.gethostname() + "."
